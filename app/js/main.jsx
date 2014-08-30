@@ -64,4 +64,4 @@ for(i = 0; i < 300; i++) {
   coll.add(a);
 }
 coll.getFirstPage();
-React.renderComponent(PageableTable( {striped:true, hover:true, condensed:true, initialCollection:coll, maximumPages:5}), document.getElementById("container"));
+React.renderComponent(<PageableTable striped hover condensed initialCollection={coll} maximumPages={5} />, document.getElementById("container"));
