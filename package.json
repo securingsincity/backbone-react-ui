@@ -1,0 +1,23 @@
+{
+  "name": "backbone-react-ui",
+  "version": "0.0.0",
+  "description": "",
+  "main": "gulpfile.js",
+  "dependencies": {
+    "backbone": "^1.1.2",
+    "backbone.paginator": "^2.0.2",
+    "browserify": "^5.11.0",
+    "jquery": "^2.1.1",
+    "lodash": "^2.4.1",
+    "react": "^0.11.1"
+  },
+  "devDependencies": {
+    "gulp-connect-multi": "^1.0.8",
+    "vinyl-source-stream": "^0.1.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}

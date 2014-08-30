@@ -1,0 +1,22 @@
+{
+  "name": "backbone-react-ui",
+  "version": "0.0.0",
+  "authors": [
+    "James Hrisho <james.hrisho@gmail.com>"
+  ],
+  "moduleType": [
+    "globals"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.2.0",
+    "datatables": "~1.10.2"
+  }
+}
