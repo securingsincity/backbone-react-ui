@@ -35,10 +35,9 @@ module.exports = React.createClass({displayName: 'exports',
 
     var maximumPages = this.props.maximumPages  ? this.props.maximumPages : 10;
     return(
-      React.DOM.div(null,
-        Table( {striped:true, hover:true, initialCollection:this.state.initialCollection}),
-        BackbonePagination( {initialCollection:this.state.initialCollection, onChangePage:this.changePage, maximumPages:maximumPages} )
-      )
-    )
+      <div>
+        <Table striped hover initialCollection={this.state.initialCollection} />
+        <BackbonePagination initialCollection={this.state.initialCollection} onChangePage={this.changePage} maximumPages={maximumPages} />
+     </div>)
   }
 });

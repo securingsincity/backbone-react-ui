@@ -10,13 +10,22 @@
     "jquery": "^2.1.1",
     "lodash": "^2.4.1",
     "react": "^0.11.1"
+
   },
   "devDependencies": {
     "gulp-connect-multi": "^1.0.8",
-    "vinyl-source-stream": "^0.1.1"
+    "vinyl-source-stream": "^0.1.1",
+    "react-test-utils": "0.0.1",
+    "react-tools": "*",
+    "reactify": "~0.10.0"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "browserify": {
+    "transform": [
+      "reactify"
+    ]
   },
   "author": "",
   "license": "ISC"
