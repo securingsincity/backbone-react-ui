@@ -9,6 +9,7 @@ This project is based lightly on [React-bootstrap](https://github.com/react-boot
 * Table (Based on a Backbone Collection or a Backbone Paginator Collection)
 * PageableTable  (Based on a Backbone Collection or a Backbone Paginator Collection)
 
+An demo of the PageableTable can be found here http://securingsincity.github.io/backbone-react-ui/example.html 
 
 
 ##Table
