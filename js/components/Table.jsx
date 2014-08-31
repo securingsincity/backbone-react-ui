@@ -50,11 +50,11 @@ module.exports = React.createClass({displayName: 'exports',
           }
 
         head.push(
-          React.DOM.th( {className:classes, onClick:self.sort, 'data-field':column.field}, columnName)
-        )
+         <th className={classes} onClick={self.sort} data-field={column.field}> {columnName}</th>
+       );
       } else {
         head.push(
-          React.DOM.th(null, columnName)
+          <th>{columnName}</th>
         )
       }
 
@@ -65,36 +65,37 @@ module.exports = React.createClass({displayName: 'exports',
        _.each(self.state.collection.tableFactory, function(column,columnName) {
          if(column.field == 'id') {
            columns.push(
-             React.DOM.td(null, model.id)
+            <td>{model.id}</td>
            );
-         }else if(column.display == 'string') {
+         } else if(column.display == 'string') {
             columns.push(
-              React.DOM.td(null, model.get(column.field))
+              <td>{ model.get(column.field) }</td>
             );
          } else if (column.display == 'button') {
             var icon;
             if(column.icon) {
-              icon = React.DOM.span( {className:"glyphicon "+column.icon})
+              icon = <span className={"glyphicon "+column.icon}/>
             }
             columns.push(
-              React.DOM.td(null, React.DOM.button( {className:'btn btn-sm '+column.classes + ' ' + column.action, 'data-id':model.id}, icon, " ", columnName))
+              <td><button className={'btn btn-sm '+column.classes + ' ' + column.action} data-id={model.id}>{icon} {columnName}</button></td>
             );
          }
 
        });
        rows.push(
-         React.DOM.tr(null, columns)
+         <tr>{columns}</tr>
        )
     });
     return (
-      React.DOM.table( {className:classes},
-        React.DOM.thead(null,
-        head
-        ),
-        React.DOM.tbody(null,
-          rows
-        )
-      )
+      <table className={classes}>
+        <thead>
+          {head}
+        </thead>
+        <tbody>
+        {rows}
+        </tbody>
+      </table>
+
     );
   }
 });

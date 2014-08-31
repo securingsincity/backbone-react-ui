@@ -40,9 +40,9 @@ module.exports = React.createClass({displayName: 'exports',
   },
   renderNext: function() {
     if(this.state.currentPage < this.state.totalPages){
-       return(React.DOM.li(null, React.DOM.a( {href:"#", onClick:this.nextPage}, "»")));
+       return (<li className=""><a href="#" onClick={this.nextPage}>&raquo;</a></li>)
     } else {
-      return(React.DOM.li( {className:"disabled"}, React.DOM.a( {href:"#"} , "»")));
+      return (<li className="disabled"><a href="#">&raquo;</a></li>)
     }
   },
   renderPages: function(){
@@ -55,25 +55,28 @@ module.exports = React.createClass({displayName: 'exports',
     if(this.props.maximumPages > this.state.totalPages) {
       for(page = 1; page <= this.state.totalPages; page++){
         if(page !== this.state.currentPage) {
-          pages.push(React.DOM.li(null, React.DOM.a( {href:"#", onClick:this.changePage, 'data-page':page, className:""}, page)));
+          pages.push(<li><a href="#" onClick={this.changePage} data-page={page} className="">{page}</a></li>)
         } else {
-          pages.push(React.DOM.li( {className:"active"}, React.DOM.a( {href:"#"}  , page)));
+          pages.push(<li className="active"><a href="#" >{page}</a></li>)
+
         }
       }
     } else {
       if(this.state.currentPage >= 4) {
-        pages.push(React.DOM.li( {className:""}, React.DOM.a( {href:"#",  onClick:this.changePage, 'data-page':1}, 1)));
-        pages.push(React.DOM.li( {className:"disabled"}, React.DOM.a( {href:"#"}  , "...")));
+        pages.push(<li><a href="#" onClick={this.changePage} data-page={1} className="">{1}</a></li>)
+        pages.push(<li className="disabled"><a href="#">&hellip;</a></li>)
+
       }
       for(page = starterPage; page <= this.state.totalPages; ++page) {
         if((starterPage + this.props.maximumPages) < page) {
-          pages.push(React.DOM.li( {className:"disabled"}, React.DOM.a( {href:"#"}  , "...")));
-          pages.push(React.DOM.li( {className:""}, React.DOM.a( {href:"#",  onClick:this.changePage, 'data-page':this.state.totalPages}, this.state.totalPages)));
+          pages.push(<li className="disabled"><a href="#">&hellip;</a></li>)
+          pages.push(<li><a href="#" onClick={this.changePage} data-page={this.state.totalPages} className="">{this.state.totalPages}</a></li>)
           break;
         } else if (page !== this.state.currentPage){
-          pages.push(React.DOM.li(null, React.DOM.a( {href:"#", onClick:this.changePage, 'data-page':page, className:""}, page)));
+          pages.push(<li><a href="#" onClick={this.changePage} data-page={page} className="">{page}</a></li>)
         } else {
-          pages.push(React.DOM.li( {className:"active"}, React.DOM.a( {href:"#"}  , page)));
+          pages.push(<li className="active"><a href="#" >{page}</a></li>)
+
         }
       }
     }
@@ -82,9 +85,10 @@ module.exports = React.createClass({displayName: 'exports',
   },
   renderPrevious : function() {
     if(this.state.currentPage > 1){
-      return(React.DOM.li(null, React.DOM.a( {href:"#", onClick:this.previousPage}, "«")));
+      return (<li className=""><a href="#" onClick={this.previousPage}>&laquo;</a></li>)
+
     }else {
-      return(React.DOM.li( {className:"disabled"}, React.DOM.a( {href:"#"} , "«")));
+      return (<li className="disabled"><a href="#" >&laquo;</a></li>)
     }
   },
 
@@ -99,11 +103,10 @@ module.exports = React.createClass({displayName: 'exports',
     var pages = this.renderPages();
     var previous = this.renderPrevious();
     return(
-    React.DOM.ul( {className:"pagination"},
-      previous,
-      pages,
-      next
-    )
-    )
+    <ul className="pagination">
+      {previous}
+      {pages}
+      {next}
+    </ul>)
   }
 });

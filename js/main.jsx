@@ -1,6 +1,6 @@
 /** @jsx React.DOM */
 var React = require('react/addons');
-var PageableTable = require('./components/PageableTable.jsx');
+var FilterablePageableTable = require('./components/FilterablePageableTable.jsx');
 $ = jQuery = global.$  = require('jquery');
 global.bootstrap = require('../bower_components/bootstrap/dist/js/bootstrap')
 var Backbone = require('backbone');
@@ -12,6 +12,11 @@ var _ = require('lodash');
 var testModel = Backbone.Model.extend();
 var testCollection = Backbone.PageableCollection.extend({
   model : testModel,
+  searchType: 'client',
+  searchFields: [
+  'first_name',
+  'last_name'
+  ],
   tableFactory : {
     'ID': {
       field: 'id',
@@ -64,4 +69,4 @@ for(i = 0; i < 300; i++) {
   coll.add(a);
 }
 coll.getFirstPage();
-React.renderComponent(PageableTable( {striped:true, hover:true, condensed:true, initialCollection:coll, maximumPages:5}), document.getElementById("container"));
+React.renderComponent(<FilterablePageableTable striped hover condensed initialCollection={coll} maximumPages={5} />, document.getElementById("container"));
