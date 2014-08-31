@@ -23,20 +23,42 @@ module.exports = React.createClass({displayName: 'exports',
     }
   },
   nextPage: function() {
-    this.state.collection.getNextPage();
-    this.props.onChangePage(this.state.collection);
-    this.forceUpdate();
+    var self = this;
+    if(this.state.collection.mode == 'client'){
+      this.state.collection.getNextPage();
+      this.props.onChangePage(this.state.collection);
+      this.forceUpdate();
+    } else {
+      this.state.collection.getNextPage().done(function () {
+        self.props.onChangePage(self.state.collection);
+      });
+    }
   },
   previousPage: function() {
-    this.state.collection.getPreviousPage();
-    this.props.onChangePage(this.state.collection);
-    this.forceUpdate();
+    var self = this;
+    if(this.state.collection.mode == 'client'){
+      this.state.collection.getPreviousPage();
+      this.props.onChangePage(this.state.collection);
+      this.forceUpdate();
+    } else {
+      this.state.collection.getPreviousPage().done(function () {
+        self.props.onChangePage(self.state.collection);
+      });
+    }
   },
   changePage: function(e) {
     var pageNumber = $(e.currentTarget).data('page');
-    this.state.collection.getPage(pageNumber);
-    this.props.onChangePage(this.state.collection);
-    this.forceUpdate();
+
+    var self = this;
+    if(this.state.collection.mode == 'client'){
+      this.state.collection.getPage(pageNumber);
+      this.props.onChangePage(this.state.collection);
+      this.forceUpdate();
+    } else {
+      this.state.collection.getPage(pageNumber).done(function () {
+        self.props.onChangePage(self.state.collection);
+      });
+    }
   },
   renderNext: function() {
     if(this.state.currentPage < this.state.totalPages){

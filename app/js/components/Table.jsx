@@ -12,19 +12,24 @@ module.exports = React.createClass({displayName: 'exports',
   },
   sort: function(e) {
     var head = $(e.currentTarget);
-
+    var self = this;
     if(head.hasClass('sorting')) {
       this.state.collection.setSorting(head.data('field'), 1);
     } else {
-      var order = -1
+      var order = 1
       if(this.state.collection.state.order == 1) {
         order = -1
-      } else {
-        order = 1
       }
+
       this.state.collection.setSorting(head.data('field'), order);
     }
-    this.state.collection.fullCollection.sort();
+    if(this.state.collection.mode == 'client'){
+      this.state.collection.fullCollection.sort()
+    } else {
+      this.state.collection.fetch().done(function(){
+          self.forceUpdate();
+      });
+    }
     this.forceUpdate();
   },
   render: function () {
@@ -44,9 +49,9 @@ module.exports = React.createClass({displayName: 'exports',
       if(column.sortable) {
           var classes = 'sorting';
           if(column.field == self.state.collection.state.sortKey && self.state.collection.state.order == 1) {
-            classes = 'sorting_asc';
-          } else if (column.field == self.state.collection.state.sortKey){
             classes = 'sorting_desc';
+          } else if (column.field == self.state.collection.state.sortKey){
+            classes = 'sorting_asc';
           }
 
         head.push(

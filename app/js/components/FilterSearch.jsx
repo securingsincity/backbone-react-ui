@@ -39,10 +39,22 @@ module.exports = React.createClass({displayName: 'exports',
           .fullCollection
           .reset(results);
           this.props.onSearch(this.state.collection);
+        } else {
+          this.state.collection.state.currentPage = 1;
+          this.state.collection.queryParams.q = searchString;
+          this.state.collection.queryParams.fields = self.state.collection.searchFields.join();
+          this.state.collection.fetch().done(function(){
+            self.props.onSearch(self.state.collection);
+          });
+
         }
 
     } else if(!e||( e.target.value && e.target.value == '')) {
-      if(this.state.collection.searchType == 'client') { this.clearSearchClientSide() }
+      if(this.state.collection.searchType == 'client') {
+        this.clearSearchClientSide()
+      } else {
+        this.clearSearchServerSide()
+      }
     }
 
   },
@@ -51,6 +63,15 @@ module.exports = React.createClass({displayName: 'exports',
       this.state.collection.getFirstPage().fullCollection.reset(this.state.collection.unfilteredCollection.models);
       this.props.onSearch(this.state.collection);
     }
+  },
+  clearSearchServerSide: function() {
+    var self = this;
+    this.state.collection.state = this.state.collection._initState;
+    this.state.collection.queryParams.q = '';
+    this.state.collection.queryParams.fields = '';
+    this.state.collection.fetch().done(function(){
+      self.props.onSearch(self.state.collection);
+    });
   },
   clearSearch:function() {
     this.setState({userInput: ''}, function() {
