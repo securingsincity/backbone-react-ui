@@ -99,7 +99,7 @@ module.exports = React.createClass({displayName: 'exports',
         <div className="col-sm-12">
           <div className=" col-sm-10">
             <input type="search" className="form-control " ref="theInput"
-              value={this.state.userInput} placeholder="Search" onChange={this.search}/>
+              placeholder="Search" onChange={this.search}/>
           </div>
           <button className="btn btn-info col-sm-2" onClick={this.clearSearch}><span className='glyphicon glyphicon-remove' /></button>
         </div>

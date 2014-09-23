@@ -34,6 +34,7 @@ module.exports = React.createClass({displayName: 'exports',
   },
   render: function () {
     var self = this;
+    if(!this.state.collection) return false;
     var cx = React.addons.classSet;
     var classes = cx({
       'table': true,

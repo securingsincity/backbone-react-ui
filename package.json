@@ -3,6 +3,12 @@
   "version": "0.0.0",
   "description": "",
   "main": "gulpfile.js",
+  "directories": {
+    "test": "__tests__"
+  },
+  "scripts": {
+    "test": "jest"
+  },
   "dependencies": {
     "backbone": "^1.1.2",
     "backbone.paginator": "^2.0.2",
@@ -18,17 +24,26 @@
   },
   "devDependencies": {
     "gulp-connect-multi": "^1.0.8",
-    "vinyl-source-stream": "^0.1.1",
+    "jest-cli": "^0.1.18",
     "react-test-utils": "0.0.1",
     "react-tools": "*",
-    "reactify": "~0.10.0"
-  },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "reactify": "~0.10.0",
+    "vinyl-source-stream": "^0.1.1"
   },
   "browserify": {
     "transform": [
       "reactify"
+    ]
+  },
+  "jest": {
+    "scriptPreprocessor": "<rootDir>/preprocessor.js",
+    "rootDir": "app",
+    "testPathIgnorePatterns": [
+      "/node_modules/",
+      "<rootDir>/node_modules/"
+    ],
+    "unmockedModulePathPatterns": [
+      "<rootDir>/node_modules/react"
     ]
   },
   "author": "",
