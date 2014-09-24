@@ -169,4 +169,63 @@ describe('Pageable Table tests - client side', function() {
 
 
   });
+  it('the table can go to specific pages', function() {
+
+    var table = <PageableTable initialCollection={self.coll} maximumPages={5} />;
+    //page length vs full collection
+    expect(self.coll.length).toBe(2);
+    expect(self.coll.fullCollection.length).toBe(10);
+    var DOM = TestUtils.renderIntoDocument(table);
+
+    // var renderedTable = TestUtils.findRenderedComponentWithType(
+    //   DOM, Table);
+
+    var renderedTable = TestUtils.findRenderedDOMComponentWithTag(
+      DOM, 'table');
+    expect(renderedTable.getDOMNode().className).toEqual("table dataTable");
+    var renderedRows = TestUtils.scryRenderedDOMComponentsWithTag(DOM,'tr');
+    var renderedPaginator = TestUtils.findRenderedDOMComponentWithClass(DOM,'pagination');
+    // should be 2
+    expect(renderedRows.length).toEqual(self.coll.state.pageSize);
+    //should be the id
+    expect($(renderedRows[0].getDOMNode()).find('td').first().text() ).toEqual('10');
+    //should be the firstName
+    expect($(renderedRows[0].getDOMNode()).find('td:nth-child(2)').text() ).toEqual('lily')
+    //should be the lastName
+    expect($(renderedRows[0].getDOMNode()).find('td:nth-child(3)').text() ).toEqual('aldrin')
+    //expect(renderedPaginator.getDOMNode().textContent).toEqual("");
+    var previousPage = $(renderedPaginator.getDOMNode()).find('li').first();
+    var nextPage = $(renderedPaginator.getDOMNode()).find('li').last();
+    var page1 = $(renderedPaginator.getDOMNode()).find('li:nth-child(2)').last();
+    var page2 = $(renderedPaginator.getDOMNode()).find('li:nth-child(3)').last();
+    var page3 = $(renderedPaginator.getDOMNode()).find('li:nth-child(4)').last();
+    var page5 = $(renderedPaginator.getDOMNode()).find('li:nth-child(6)').last();
+
+
+    TestUtils.Simulate.click(page3.find('a')[0]);
+    expect($(renderedRows[0].getDOMNode()).find('td').first().text() ).toEqual('1');
+    //should be the firstName
+    expect($(renderedRows[0].getDOMNode()).find('td:nth-child(2)').text() ).toEqual('james')
+    //should be the lastName
+    expect($(renderedRows[0].getDOMNode()).find('td:nth-child(3)').text() ).toEqual('hrisho')
+    expect(previousPage.hasClass('disabled')).toBe(false);
+    expect(page1.hasClass('active')).toBe(false);
+    expect(page2.hasClass('active')).toBe(false);
+    expect(page3.hasClass('active')).toBe(true);
+    expect(nextPage.hasClass('disabled')).toBe(false);
+    TestUtils.Simulate.click(page5.find('a')[0]);
+    expect($(renderedRows[0].getDOMNode()).find('td').first().text() ).toEqual('2');
+    //should be the firstName
+    expect($(renderedRows[0].getDOMNode()).find('td:nth-child(2)').text() ).toEqual('jerry')
+    //should be the lastName
+    expect($(renderedRows[0].getDOMNode()).find('td:nth-child(3)').text() ).toEqual('seinfeld')
+    expect(previousPage.hasClass('disabled')).toBe(false);
+    expect(page1.hasClass('active')).toBe(false);
+    expect(page3.hasClass('active')).toBe(false);
+    expect(page5.hasClass('active')).toBe(true);
+    expect(nextPage.hasClass('disabled')).toBe(true);
+
+
+
+  });
 })
