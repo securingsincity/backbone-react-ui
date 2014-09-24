@@ -1,5 +1,6 @@
 #Backbone-React-ui
 
+[![Build Status](https://travis-ci.org/securingsincity/backbone-react-ui.svg?branch=master)](https://travis-ci.org/securingsincity/backbone-react-ui)
 
 [React](http://facebook.github.io/react/) components for use with [Backbone](http://backbonejs.org/), [Bootstrap](http://getbootstrap.com) and [Backbone.Paginator](https://github.com/backbone-paginator/backbone.paginator)
 
