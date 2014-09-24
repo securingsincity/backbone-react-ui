@@ -79,7 +79,7 @@ describe('Pageable Table tests - client side', function() {
   });
   it('the table renders correctly', function() {
 
-    var table = <PageableTable initialCollection={self.coll} maximumPages={5} />;
+    var table = PageableTable({ initialCollection : self.coll, maximumPages: 5});
     //page length vs full collection
     expect(self.coll.length).toBe(2);
     expect(self.coll.fullCollection.length).toBe(10);
@@ -116,7 +116,7 @@ describe('Pageable Table tests - client side', function() {
   });
   it('the table can go to next page and previous page', function() {
 
-    var table = <PageableTable initialCollection={self.coll} maximumPages={5} />;
+    var table = PageableTable({ initialCollection : self.coll, maximumPages: 5});
     //page length vs full collection
     expect(self.coll.length).toBe(2);
     expect(self.coll.fullCollection.length).toBe(10);
@@ -171,7 +171,7 @@ describe('Pageable Table tests - client side', function() {
   });
   it('the table can go to specific pages', function() {
 
-    var table = <PageableTable initialCollection={self.coll} maximumPages={5} />;
+    var table = PageableTable({ initialCollection : self.coll, maximumPages: 5});
     //page length vs full collection
     expect(self.coll.length).toBe(2);
     expect(self.coll.fullCollection.length).toBe(10);

@@ -79,7 +79,7 @@ describe('Table tests - client side', function() {
   });
   it('the table renders correctly', function() {
 
-    var table = <Table initialCollection={self.coll} />;
+    var table = Table({ initialCollection: self.coll});
     //page length vs full collection
     expect(self.coll.length).toBe(2);
     expect(self.coll.fullCollection.length).toBe(10);
@@ -104,7 +104,7 @@ describe('Table tests - client side', function() {
   });
   it('the table reorder correctly', function() {
 
-    var table = <Table initialCollection={self.coll} />;
+    var table = Table({ initialCollection: self.coll});
     //page length vs full collection
     expect(self.coll.length).toBe(2);
     expect(self.coll.fullCollection.length).toBe(10);
@@ -146,7 +146,7 @@ describe('Table tests - client side', function() {
   });
   it('the table reorder correctly when selecting another sort', function() {
 
-    var table = <Table initialCollection={self.coll} />;
+    var table = Table({ initialCollection: self.coll});
     //page length vs full collection
     expect(self.coll.length).toBe(2);
     expect(self.coll.fullCollection.length).toBe(10);
