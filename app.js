@@ -17,6 +17,10 @@ var allUsers = [
   { id : 10, first_name: 'james', last_name : 'hrisho'}
 ];
 var filteredUsersCount = 1;
+/**
+ * Fetch the users
+ * @param {object} req The request itself
+ */
 function getUsers(req) {
   var allUsersClone = _.clone(allUsers);
   var currentPage = req.query.page ? parseInt(req.query.page ): 1;

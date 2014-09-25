@@ -22,6 +22,9 @@ module.exports = React.createClass({displayName: 'exports',
       totalPages: this.props.totalPages
     }
   },
+  /**
+   * Next page button being clicked
+   */
   nextPage: function() {
     var self = this;
     if(this.state.collection.mode == 'client'){
@@ -34,6 +37,9 @@ module.exports = React.createClass({displayName: 'exports',
       });
     }
   },
+  /**
+   * Previous page button being clicked
+   */
   previousPage: function() {
     var self = this;
     if(this.state.collection.mode == 'client'){
@@ -46,6 +52,10 @@ module.exports = React.createClass({displayName: 'exports',
       });
     }
   },
+  /**
+   * Change page being clicked
+   * @param {Event} e Event of the page number being clicked
+   */
   changePage: function(e) {
     var pageNumber = $(e.currentTarget).data('page');
 
@@ -60,6 +70,10 @@ module.exports = React.createClass({displayName: 'exports',
       });
     }
   },
+  /**
+   * Render function for the next page button.
+   * If the current page is the last then it shouldn't render a clickable next page
+   */
   renderNext: function() {
     if(this.state.currentPage < this.state.totalPages){
        return (<li className=""><a href="#" onClick={this.nextPage}>&raquo;</a></li>)
@@ -67,6 +81,12 @@ module.exports = React.createClass({displayName: 'exports',
       return (<li className="disabled"><a href="#">&raquo;</a></li>)
     }
   },
+  /**
+   * Render functon for the pages
+   * If the number of maximumPages is exceeded by the number of pages then that must be handled with an ellipsis
+   * If the page is active then it should have the active class
+   * 
+   */
   renderPages: function(){
     var pages = [];
     var starterPage = 1;
@@ -105,6 +125,10 @@ module.exports = React.createClass({displayName: 'exports',
     return pages;
 
   },
+  /**
+   * Render function for the previous page button.
+   * If the current page is the first then it shouldn't render a clickable previous page
+   */
   renderPrevious : function() {
     if(this.state.currentPage > 1){
       return (<li className=""><a href="#" onClick={this.previousPage}>&laquo;</a></li>)

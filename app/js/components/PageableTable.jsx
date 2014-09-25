@@ -20,6 +20,10 @@ module.exports = React.createClass({displayName: 'exports',
   getInitialState: function() {
     return {initialCollection: this.props.initialCollection}
   },
+  /**
+   * Change page handler for collections
+   * @param {collection} newCollection The updated collection upon changing pages
+   */
   changePage: function(newCollection) {
     this.setState({collection: newCollection})
   },

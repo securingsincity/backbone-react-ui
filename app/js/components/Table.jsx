@@ -10,6 +10,11 @@ module.exports = React.createClass({displayName: 'exports',
   getInitialState: function() {
     return {collection: this.props.initialCollection}
   },
+  /**
+   * Sort functionality for a table header
+   * @param  {object} e Event object
+   * 
+   */
   sort: function(e) {
     var head = $(e.currentTarget);
     var self = this;

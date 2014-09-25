@@ -10,6 +10,11 @@ module.exports = React.createClass({displayName: 'exports',
   getInitialState: function() {
     return {userInput: '',collection: this.props.initialCollection,searchResults:this.props.initialCollection}
   },
+  /**
+   * Search functionality on a fullCollection
+   * @param  {Object or String } e Event for determining a search or a string for determining search
+   *
+   */
   search: function(e) {
     var self = this;
 
@@ -58,12 +63,18 @@ module.exports = React.createClass({displayName: 'exports',
     }
 
   },
+  /**
+   * Clear the search when being executed for a client style search
+   */
   clearSearchClientSide: function() {
     if(this.state.collection.unfilteredCollection){
       this.state.collection.getFirstPage().fullCollection.reset(this.state.collection.unfilteredCollection.models);
       this.props.onSearch(this.state.collection);
     }
   },
+  /**
+   * Clear the search when being executed for a server style search
+   */
   clearSearchServerSide: function() {
     var self = this;
     this.state.collection.state = this.state.collection._initState;
@@ -73,6 +84,9 @@ module.exports = React.createClass({displayName: 'exports',
       self.props.onSearch(self.state.collection);
     });
   },
+  /**
+   * Clear search : focuses the input and empties it as well as clearling the state
+   */
   clearSearch:function() {
     this.setState({userInput: ''}, function() {
         // This code executes after the component is re-rendered

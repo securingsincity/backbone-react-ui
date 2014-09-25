@@ -20,6 +20,11 @@ module.exports = React.createClass({displayName: 'exports',
   getInitialState: function() {
     return {initialCollection: this.props.initialCollection}
   },
+  
+  /**
+   * Search handler for collections
+   * @param {collection} newCollection The updated collection upon search
+   */
   search: function(newCollection) {
     this.setState({collection: newCollection})
   },
