@@ -2,7 +2,7 @@
   "name": "backbone-react-ui",
   "version": "0.0.0",
   "description": "",
-  "main": "gulpfile.js",
+  "main": "index",
   "directories": {
     "test": "__tests__"
   },

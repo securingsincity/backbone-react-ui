@@ -5,12 +5,31 @@
 [React](http://facebook.github.io/react/) components for use with [Backbone](http://backbonejs.org/), [Bootstrap](http://getbootstrap.com) and [Backbone.Paginator](https://github.com/backbone-paginator/backbone.paginator)
 
 This project is based lightly on [React-bootstrap](https://github.com/react-bootstrap/react-bootstrap) but is focused on incorporating backbone to create a viewmodel system
+
+##Usage:
+
+`npm install backbone-react-ui`
+
+```javascript
+var BackboneReactUI = require('backbone-react-ui');
+React.renderComponent(BackboneReactUI.FilterablePageableTable({initialCollection:coll, maximumPages:5}), document.getElementById("container"));
+
+```
+##Dependencies:
+* React
+* jQuery
+* Backbone
+* Backbone.paginator -- optional
+* Lodash/underscore
+
+
 ##Components:
 * Paginator  (Based on a Backbone Collection or a Backbone Paginator Collection)
 * Table (Based on a Backbone Collection or a Backbone Paginator Collection)
 * PageableTable  (Based on a Backbone Collection or a Backbone Paginator Collection)
+* FilterablePageableTable - The whole sha-bang being able to filter results, sort and page through them. Also based on a Backbone Collection or a Backbone Paginator Collection
 
-An demo of the PageableTable can be found here http://securingsincity.github.io/backbone-react-ui/example.html 
+An demo of the FitlerablePageableTable can be found here http://securingsincity.github.io/backbone-react-ui/example.html
 
 
 ##Table
@@ -89,4 +108,16 @@ The only difference is that you would include a Backbone.PageableCollection this
 The instantiation would be the same except with this time you could include the `maximumPages` if you have many pages of data
 ```javascript
 React.renderComponent(<PageableTable striped hover condensed initialCollection={coll} maximumPages={5} />, document.getElementById("container"));
+```
+
+
+###FilterablePageableTable
+
+This combines the paginator, the table functionality as well as filter/search.
+
+The search can be driven by an API or just done on the client side
+
+
+```javascript
+React.renderComponent(<FilterablePageableTable striped hover condensed initialCollection={coll} maximumPages={5} />, document.getElementById("container"));
 ```
