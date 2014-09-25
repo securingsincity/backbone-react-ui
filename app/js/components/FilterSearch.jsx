@@ -77,6 +77,7 @@ module.exports = React.createClass({displayName: 'exports',
     this.setState({userInput: ''}, function() {
         // This code executes after the component is re-rendered
         this.refs.theInput.getDOMNode().focus();   // Boom! Focused!
+        $(this.refs.theInput.getDOMNode()).val('')
         this.search();
       });
   },
@@ -98,7 +99,7 @@ module.exports = React.createClass({displayName: 'exports',
         </div>
         <div className="col-sm-12">
           <div className=" col-sm-10">
-            <input type="search" className="form-control " ref="theInput"
+            <input type="search" className="form-control " ref="theInput" defaultValue={this.state.userInput}
               placeholder="Search" onChange={this.search}/>
           </div>
           <button className="btn btn-info col-sm-2" onClick={this.clearSearch}><span className='glyphicon glyphicon-remove' /></button>
