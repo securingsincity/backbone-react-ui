@@ -1,10 +1,12 @@
 #Backbone-React-ui
 
-[![Build Status](https://travis-ci.org/securingsincity/backbone-react-ui.svg?branch=master)](https://travis-ci.org/securingsincity/backbone-react-ui)
 
 [React](http://facebook.github.io/react/) components for use with [Backbone](http://backbonejs.org/), [Bootstrap](http://getbootstrap.com) and [Backbone.Paginator](https://github.com/backbone-paginator/backbone.paginator)
 
 This project is based lightly on [React-bootstrap](https://github.com/react-bootstrap/react-bootstrap) but is focused on incorporating backbone to create a viewmodel system
+
+[![Build Status](https://travis-ci.org/securingsincity/backbone-react-ui.svg?branch=master)](https://travis-ci.org/securingsincity/backbone-react-ui)
+
 
 ##Usage:
 
