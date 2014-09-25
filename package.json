@@ -1,6 +1,6 @@
 {
   "name": "backbone-react-ui",
-  "version": "0.1.0",
+  "version": "0.1.2",
   "description": "",
   "main": "index",
   "directories": {
@@ -9,6 +9,7 @@
   "scripts": {
     "test": "jest"
   },
+  "homepage": "https://github.com/securingsincity/backbone-react-ui",
   "dependencies": {
     "backbone": "^1.1.2",
     "backbone.paginator": "^2.0.2",
