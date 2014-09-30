@@ -1,6 +1,6 @@
 /** @jsx React.DOM */
 var React = require('react/addons');
-$ = jQuery = global.$  = require('jquery');
+$ = jQuery =  require('jquery');
 var Table = require('./Table.jsx');
 var BackbonePagination = require('./BackbonePagination.jsx');
 global.bootstrap = require('../../bower_components/bootstrap/dist/js/bootstrap')

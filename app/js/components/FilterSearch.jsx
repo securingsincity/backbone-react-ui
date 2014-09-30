@@ -1,7 +1,7 @@
 /** @jsx React.DOM */
 var React = require('react/addons');
-$ = jQuery = global.$  = require('jquery');
-global.bootstrap = require('../../bower_components/bootstrap/dist/js/bootstrap')
+$ = jQuery = $  = require('jquery');
+bootstrap = require('../../bower_components/bootstrap/dist/js/bootstrap')
 var Backbone = require('backbone');
 require('backbone.paginator');
 var _ = require('lodash');

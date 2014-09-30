@@ -1,7 +1,7 @@
 /** @jsx React.DOM */
 var React = require('react/addons');
-$ = jQuery = global.$  = require('jquery');
-global.bootstrap = require('../../bower_components/bootstrap/dist/js/bootstrap')
+$ = jQuery = require('jquery');
+bootstrap = require('../../bower_components/bootstrap/dist/js/bootstrap')
 var Backbone = require('backbone');
 require('backbone.paginator');
 var _ = require('lodash');
@@ -85,7 +85,7 @@ module.exports = React.createClass({displayName: 'exports',
    * Render functon for the pages
    * If the number of maximumPages is exceeded by the number of pages then that must be handled with an ellipsis
    * If the page is active then it should have the active class
-   * 
+   *
    */
   renderPages: function(){
     var pages = [];

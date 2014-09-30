@@ -1,6 +1,6 @@
 /** @jsx React.DOM */
 var React = require('react/addons');
-$ = jQuery = global.$  = require('jquery');
+$ = jQuery = require('jquery');
 global.bootstrap = require('../../bower_components/bootstrap/dist/js/bootstrap')
 var Backbone = require('backbone');
 require('backbone.paginator');
@@ -13,7 +13,7 @@ module.exports = React.createClass({displayName: 'exports',
   /**
    * Sort functionality for a table header
    * @param  {object} e Event object
-   * 
+   *
    */
   sort: function(e) {
     var head = $(e.currentTarget);

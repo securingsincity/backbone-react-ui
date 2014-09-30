@@ -1,9 +1,9 @@
 /** @jsx React.DOM */
 var React = require('react/addons');
-$ = jQuery = global.$  = require('jquery');
+$ = jQuery  = require('jquery');
 var PageableTable = require('./PageableTable.jsx');
 var FilterSearch = require('./FilterSearch.jsx');
-global.bootstrap = require('../../bower_components/bootstrap/dist/js/bootstrap')
+bootstrap = require('../../bower_components/bootstrap/dist/js/bootstrap')
 var Backbone = require('backbone');
 require('backbone.paginator');
 var _ = require('lodash');
@@ -20,7 +20,7 @@ module.exports = React.createClass({displayName: 'exports',
   getInitialState: function() {
     return {initialCollection: this.props.initialCollection}
   },
-  
+
   /**
    * Search handler for collections
    * @param {collection} newCollection The updated collection upon search
