@@ -54,7 +54,7 @@ module.exports = React.createClass({displayName: 'exports',
 
         }
 
-    } else if(!e||( e.target.value && e.target.value == '')) {
+    } else if(!e||(e.target.value == '')) {
       if(this.state.collection.searchType == 'client') {
         this.clearSearchClientSide()
       } else {

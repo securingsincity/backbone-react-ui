@@ -25,7 +25,8 @@ module.exports = React.createClass({displayName: 'exports',
   /**
    * Next page button being clicked
    */
-  nextPage: function() {
+  nextPage: function(e) {
+    e.preventDefault();
     var self = this;
     if(this.state.collection.mode == 'client'){
       this.state.collection.getNextPage();
@@ -40,7 +41,8 @@ module.exports = React.createClass({displayName: 'exports',
   /**
    * Previous page button being clicked
    */
-  previousPage: function() {
+  previousPage: function(e) {
+    e.preventDefault();
     var self = this;
     if(this.state.collection.mode == 'client'){
       this.state.collection.getPreviousPage();
@@ -57,6 +59,7 @@ module.exports = React.createClass({displayName: 'exports',
    * @param {Event} e Event of the page number being clicked
    */
   changePage: function(e) {
+    e.preventDefault();
     var pageNumber = $(e.currentTarget).data('page');
 
     var self = this;
@@ -76,9 +79,9 @@ module.exports = React.createClass({displayName: 'exports',
    */
   renderNext: function() {
     if(this.state.currentPage < this.state.totalPages){
-       return (<li className=""><a href="#" onClick={this.nextPage}>&raquo;</a></li>)
+       return (<li className=""><a href="javascript: void 0;" onClick={this.nextPage}>&raquo;</a></li>)
     } else {
-      return (<li className="disabled"><a href="#">&raquo;</a></li>)
+      return (<li className="disabled"><a href="javascript: void 0;">&raquo;</a></li>)
     }
   },
   /**
@@ -97,27 +100,27 @@ module.exports = React.createClass({displayName: 'exports',
     if(this.props.maximumPages > this.state.totalPages) {
       for(page = 1; page <= this.state.totalPages; page++){
         if(page !== this.state.currentPage) {
-          pages.push(<li><a href="#" onClick={this.changePage} data-page={page} className="">{page}</a></li>)
+          pages.push(<li><a href="javascript: void 0;" onClick={this.changePage} data-page={page} className="">{page}</a></li>)
         } else {
-          pages.push(<li className="active"><a href="#" >{page}</a></li>)
+          pages.push(<li className="active"><a href="javascript: void 0;" >{page}</a></li>)
 
         }
       }
     } else {
       if(this.state.currentPage >= 4) {
-        pages.push(<li><a href="#" onClick={this.changePage} data-page={1} className="">{1}</a></li>)
-        pages.push(<li className="disabled"><a href="#">&hellip;</a></li>)
+        pages.push(<li><a href="javascript: void 0;" onClick={this.changePage} data-page={1} className="">{1}</a></li>)
+        pages.push(<li className="disabled"><a href="javascript: void 0;">&hellip;</a></li>)
 
       }
       for(page = starterPage; page <= this.state.totalPages; ++page) {
         if((starterPage + this.props.maximumPages) < page) {
-          pages.push(<li className="disabled"><a href="#">&hellip;</a></li>)
-          pages.push(<li><a href="#" onClick={this.changePage} data-page={this.state.totalPages} className="">{this.state.totalPages}</a></li>)
+          pages.push(<li className="disabled"><a href="javascript: void 0;">&hellip;</a></li>)
+          pages.push(<li><a href="javascript: void 0;" onClick={this.changePage} data-page={this.state.totalPages} className="">{this.state.totalPages}</a></li>)
           break;
         } else if (page !== this.state.currentPage){
-          pages.push(<li><a href="#" onClick={this.changePage} data-page={page} className="">{page}</a></li>)
+          pages.push(<li><a href="javascript: void 0;" onClick={this.changePage} data-page={page} className="">{page}</a></li>)
         } else {
-          pages.push(<li className="active"><a href="#" >{page}</a></li>)
+          pages.push(<li className="active"><a href="javascript: void 0;" >{page}</a></li>)
 
         }
       }
@@ -131,10 +134,10 @@ module.exports = React.createClass({displayName: 'exports',
    */
   renderPrevious : function() {
     if(this.state.currentPage > 1){
-      return (<li className=""><a href="#" onClick={this.previousPage}>&laquo;</a></li>)
+      return (<li className=""><a href="javascript: void 0;" onClick={this.previousPage}>&laquo;</a></li>)
 
     }else {
-      return (<li className="disabled"><a href="#" >&laquo;</a></li>)
+      return (<li className="disabled"><a href="javascript: void 0;" >&laquo;</a></li>)
     }
   },
 

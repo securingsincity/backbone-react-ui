@@ -1,6 +1,6 @@
 {
   "name": "backbone-react-ui",
-  "version": "0.1.4",
+  "version": "0.1.8",
   "description": "React components for use with Backbone, Bootstrap and Backbone.Paginator",
   "main": "index",
   "directories": {
