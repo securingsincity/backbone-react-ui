@@ -1,5 +1,6 @@
 /** @jsx React.DOM */
 jest.dontMock('../js/components/Table.jsx');
+jest.dontMock('react/addons');
 var React = require('react/addons');
 var PageableTable = require('../js/components/PageableTable.jsx');
 var TestUtils = React.addons.TestUtils;

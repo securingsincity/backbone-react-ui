@@ -1,5 +1,6 @@
 /** @jsx React.DOM */
 jest.dontMock('../js/components/FilterablePageableTable.jsx');
+jest.dontMock('react/addons');
 var React = require('react/addons');
 var FilterablePageableTable = require('../js/components/FilterablePageableTable.jsx');
 var FilterSearch = require('../js/components/FilterSearch.jsx');

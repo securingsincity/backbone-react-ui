@@ -1,5 +1,6 @@
 /** @jsx React.DOM */
 jest.dontMock('../js/components/Table.jsx');
+jest.dontMock('react/addons');
 var React = require('react/addons');
 var Table = require('../js/components/Table.jsx');
 var TestUtils = React.addons.TestUtils;
