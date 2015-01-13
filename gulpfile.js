@@ -72,7 +72,7 @@ gulp.task('connect', connect.server({
 }));
 
 gulp.task('watch-client', ['scripts-client', 'connect'], function () {
-    gulp.watch(['app/js/**/*.js','app/js/**/*.jsx','!app/js/app.js'], ['scripts-client']);
+    gulp.watch(['app/js/**/*.js','app/js/**/*.jsx','!app/js/app.js','!app/js/client.js'], ['scripts-client']);
     gulp.watch(['app/css/**.css'], ['styles']);
 });
 gulp.task('watch-server', ['scripts-server', 'connect'], function () {

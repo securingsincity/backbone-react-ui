@@ -94,7 +94,7 @@ module.exports = React.createClass({displayName: 'exports',
     var pages = [];
     var starterPage = 1;
     if(this.state.currentPage >= 4) {
-      starterPage = this.state.currentPage - 2;
+      starterPage = this.state.currentPage - 1;
     }
 
     if(this.props.maximumPages > this.state.totalPages) {
@@ -113,7 +113,7 @@ module.exports = React.createClass({displayName: 'exports',
 
       }
       for(page = starterPage; page <= this.state.totalPages; ++page) {
-        if((starterPage + this.props.maximumPages) < page) {
+        if((starterPage + this.props.maximumPages) < page && (page + this.props.maximumPages) < this.state.totalPages) {
           pages.push(<li className="disabled"><a href="javascript: void 0;">&hellip;</a></li>)
           pages.push(<li><a href="javascript: void 0;" onClick={this.changePage} data-page={this.state.totalPages} className="">{this.state.totalPages}</a></li>)
           break;
