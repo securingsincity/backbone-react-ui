@@ -134,6 +134,7 @@ describe('Filterable Pageable Table tests - client side', function() {
     var input = TestUtils.findRenderedDOMComponentWithTag(renderedInput, 'input');
     var search = renderedInput.getDOMNode();
     React.addons.TestUtils.Simulate.change(input, { target: { value: 'george' } });
+    $(search).find('input').val('george')
     expect($(search).find('input').val()).toEqual('george');
     TestUtils.Simulate.click($(search).find('button')[0]);
     expect($(input.getDOMNode()).val()).toEqual('');
@@ -151,6 +152,7 @@ describe('Filterable Pageable Table tests - client side', function() {
     var input = TestUtils.findRenderedDOMComponentWithTag(renderedInput, 'input');
     var search = renderedInput.getDOMNode();
     React.addons.TestUtils.Simulate.change(input, { target: { value: 'george' } });
+    $(search).find('input').val('george')
     expect($(search).find('input').val()).toEqual('george');
     expect(self.coll.length).toBe(1);
     TestUtils.Simulate.click($(search).find('button')[0]);

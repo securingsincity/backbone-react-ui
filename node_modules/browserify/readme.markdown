@@ -13,6 +13,12 @@ tag.
 
 ![browserify!](http://substack.net/images/browserify_logo.png)
 
+# getting started
+
+If you're new to browserify, check out the
+[browserify handbook](https://github.com/substack/browserify-handbook)
+and the resources on [browserify.org](http://browserify.org/).
+
 # example
 
 Whip up a file, `main.js` with some `require()s` in it. You can use relative
@@ -426,6 +432,9 @@ The `file` param is anything that can be resolved by `require.resolve()`.
 relative requires will be resolvable.
 
 If `file` is an array, each item in `file` will be required.
+In `file` array form, you can use a string or object for each item. Object items
+should have a `file` property and the rest of the parameters will be used for
+the `opts`.
 
 Use the `expose` property of opts to specify a custom dependency name. 
 `require('./vendor/angular/angular.js', {expose: 'angular'})` enables `require('angular')`
@@ -521,6 +530,31 @@ transform will suffice. You can also not configure global transforms in a
 `package.json` like you can with ordinary transforms.
 
 Global transforms always run after any ordinary transforms have run.
+
+Transforms may obtain options from the command-line with
+[subarg](https://npmjs.org/package/subarg) syntax:
+
+```
+$ browserify -t [ foo --bar=555 ] main.js
+```
+
+or from the api:
+
+```
+b.transform('foo', { bar: 555 })
+```
+
+In both cases, these options are provided as the second argument to the
+transform function:
+
+```
+module.exports = function (file, opts) { /* opts.bar === 555 */ }
+```
+
+Options sent to the browserify constructor are also provided under
+`opts._flags`. These browserify options are sometimes required if your transform
+needs to do something different when browserify is run in debug mode, for
+example.
 
 ## b.plugin(plugin, opts)
 
