@@ -18,7 +18,7 @@
     "gulp-express": "0.0.9",
     "jquery": "^2.1.1",
     "lodash": "^2.4.1",
-    "react": "^0.12.1",
+    "react": "^0.12.2",
     "request": "^2.36.0",
     "serve-index": "^1.2.0",
     "serve-static": "^1.5.3"
@@ -36,9 +36,8 @@
   "devDependencies": {
     "gulp-connect-multi": "^1.0.8",
     "jest-cli": "*",
-    "react-test-utils": "0.0.1",
-    "react-tools": "*",
-    "reactify": "~0.10.0",
+    "react-tools": "^0.12.2",
+    "reactify": "^0.17.1",
     "vinyl-source-stream": "^0.1.1"
   },
   "browserify": {
